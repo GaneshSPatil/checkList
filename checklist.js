@@ -1,9 +1,11 @@
 var readlineSync = require('readline-sync');
+var fs = require('fs');
 
 var addFeatureToChecklist = function(){
 	var feature = readlineSync.question('Feature or Input : ');
 	var output = readlineSync.question('Description or Output : ');
-	console.log(feature, output);
+	var allInfo = "allInformation.push({ input  : '"+feature+"', output : '"+output+"', status : 'Pending' });"
+	fs.appendFile('./information.js', allInfo);
 };
 
 var main = function(){
